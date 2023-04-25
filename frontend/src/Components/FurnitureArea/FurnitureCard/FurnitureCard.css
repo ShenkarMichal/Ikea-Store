@@ -1,0 +1,7 @@
+.FurnitureCard {
+    border-radius: 20px;
+    background-color: white;
+    color: blue;
+    text-align: center;
+    border: 2px solid yellow;
+}
