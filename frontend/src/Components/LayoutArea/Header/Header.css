@@ -1,0 +1,17 @@
+.Header > h1 {
+    font-weight: 900;
+    font-size: 100px;
+    position: absolute;
+    left: 20px;
+    margin-top: -20px;
+    display: inline-block;
+}
+
+a {
+    position: absolute;
+    right: 50px;
+    top:50px;
+    text-align: right;
+    font-size: large;
+    color: white;
+}

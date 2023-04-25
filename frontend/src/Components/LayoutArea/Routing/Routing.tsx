@@ -10,7 +10,7 @@ function Routing(): JSX.Element{
             <Routes>
                 <Route path="/furniture" element={<GetFurniture />} />
                 <Route path="/furniture-add" element={<AddFurniture />} />
-                <Route path="/" element={<GetFurniture />} />
+                <Route path="/" element={<Navigate to="/furniture" />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </div>

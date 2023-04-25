@@ -1,0 +1,13 @@
+.Layout {
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 20% 75% 5%;
+    grid-template-columns:repeat(1fr, 6);
+}
+
+.Layout > * {
+    border: 1 solid black;
+    grid-column: span 6;
+    text-align: center;
+}

@@ -4,7 +4,7 @@ import "./Main.css"
 function Main(): JSX.Element{
     return(
         <div className="Main">
-            <Routing />
+            <Routing />2
         </div>
     )
 }
