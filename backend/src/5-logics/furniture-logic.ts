@@ -1,13 +1,34 @@
+import { OkPacket } from "mysql";
 import dal from "../2-utils/dal";
 import FurnitureModel from "../4-models/furniture-model";
 
 async function getAllFurniture(): Promise<FurnitureModel[]> {
 
-    const sql = "SELECT * FROM furniture"
+    const sql = `SELECT F.*, T.furnitureTypeName 
+                FROM furniture AS F JOIN furnitureType AS T
+                ON F.furnitureTypeID = T.furnitureTypeID`
     const furniture = await dal.execute(sql)
     return furniture    
 }
 
+async function addFurniture(furniture:FurnitureModel): Promise<FurnitureModel> {
+    const sql = `INSERT INTO furniture
+                VALUES(
+                    DEFAULT,
+                    ${furniture.furnitureTypeID},
+                    '${furniture.name}',
+                    '${furniture.description}',
+                    '${furniture.size}',
+                    '${furniture.color}',
+                    ${furniture.price},
+                    ${furniture.discount}
+                )`
+    const info: OkPacket = await dal.execute(sql)
+    furniture.furnitureID = info.insertId
+    return furniture    
+}
+
 export default {
-    getAllFurniture
+    getAllFurniture,
+    addFurniture
 }
