@@ -9,9 +9,12 @@ class FurnitureService {
         return furniture
     }
 
-    public async addFurniture(furniture: FurnitureModel): Promise<void> {
-        await axios.post<void>(appConfig.furnitureURL, furniture)
+    public async addFurniture(furniture: FurnitureModel): Promise<FurnitureModel> {
+        const response = await axios.post<FurnitureModel>(appConfig.furnitureURL, furniture)
+        const addedFurniture = response.data
+        return addedFurniture
     }
 }
 
-export default FurnitureService
+const furnitureService = new FurnitureService()
+export default furnitureService

@@ -1,9 +1,41 @@
+import { useForm } from "react-hook-form"
+import FurnitureModel from "../../../4-Models/FurnitureModel"
 import "./AddFurniture.css"
+import furnitureService from "../../../3-Services/FurnitureService"
+import { useNavigate } from "react-router-dom"
 
 function AddFurniture(): JSX.Element{
+
+    const {register, handleSubmit} = useForm<FurnitureModel>()
+    const navigate = useNavigate()
+
+    async function send(furniture: FurnitureModel){
+        try {
+            await furnitureService.addFurniture(furniture)
+            alert("The furniture has been successfully added")
+            navigate("/furniture")            
+        } 
+        catch (err:any) {
+            alert(err.msg)
+        }
+
+    }
     return(
         <div className="AddFurniture">
-
+            <form onSubmit={handleSubmit(send)}>
+                <label>Name:</label>
+                <input type="text" {...register("name")} /> <br />
+                <label>Description:</label>
+                <textarea {...register("description")}></textarea> <br />
+                <label>Size:</label>
+                <input type="text" {...register("size")}/> <br />
+                <label>Color:</label>
+                <input type="text" {...register("color")}/> <br />
+                <label>Price:</label>
+                <input type="text" {...register("price")}/> <br />
+                <label>Discount:</label>
+                <input type="text" {...register("discount")}/> <br />
+            </form>
         </div>
     )
 }
