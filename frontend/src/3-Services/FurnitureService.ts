@@ -21,6 +21,12 @@ class FurnitureService {
         const furnitureType = response.data
         return furnitureType
     }
+
+    public async getFurnitureByType(furnitureTypeID: number): Promise<FurnitureModel[]> {
+        const response = await axios.get<FurnitureModel[]>(appConfig.furnitureByTypeURL+furnitureTypeID)
+        const furniture = response.data
+        return furniture
+    }
 }
 
 const furnitureService = new FurnitureService()

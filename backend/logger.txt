@@ -4,4 +4,8 @@ Wed Apr 26 2023 23:16:31 GMT+0300 (שעון ישראל (קיץ))
  ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'field list' 
  ------------------Wed Apr 26 2023 23:21:12 GMT+0300 (שעון ישראל (קיץ))
  ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'field list' 
+ ------------------Wed Apr 26 2023 23:44:10 GMT+0300 (שעון ישראל (קיץ))
+ The route /api/furniture-by-furniture-type is not exists 
+ ------------------Wed Apr 26 2023 23:50:42 GMT+0300 (שעון ישראל (קיץ))
+ The route /api/furniture-by-furniture-type/undefined is not exists 
  ------------------
