@@ -1,0 +1,7 @@
+Wed Apr 26 2023 23:16:31 GMT+0300 (שעון ישראל (קיץ))
+ ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'field list' 
+ ------------------Wed Apr 26 2023 23:20:36 GMT+0300 (שעון ישראל (קיץ))
+ ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'field list' 
+ ------------------Wed Apr 26 2023 23:21:12 GMT+0300 (שעון ישראל (קיץ))
+ ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'field list' 
+ ------------------

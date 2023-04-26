@@ -3,6 +3,8 @@ import FurnitureModel from "../../../4-Models/FurnitureModel"
 import "./AddFurniture.css"
 import furnitureService from "../../../3-Services/FurnitureService"
 import { useNavigate } from "react-router-dom"
+import GetFurnitureType from "../GetFurnitureType/GetFurnitureType"
+import { furnitureTypeStore } from "../../../Redux/FurnitureTypeState"
 
 function AddFurniture(): JSX.Element{
 
@@ -11,18 +13,22 @@ function AddFurniture(): JSX.Element{
 
     async function send(furniture: FurnitureModel){
         try {
-            await furnitureService.addFurniture(furniture)
+            const furnitureType = furnitureTypeStore.getState().furnitureType
+            furniture.furnitureTypeID = furnitureType.furnitureTypeID
+            await furnitureService.addFurniture(furniture)            
             alert("The furniture has been successfully added")
             navigate("/furniture")            
         } 
         catch (err:any) {
-            alert(err.msg)
+            alert(err)
         }
 
     }
     return(
         <div className="AddFurniture">
             <form onSubmit={handleSubmit(send)}>
+                <label>Furniture Type:</label>
+                <GetFurnitureType /> <br />
                 <label>Name:</label>
                 <input type="text" {...register("name")} /> <br />
                 <label>Description:</label>

@@ -9,8 +9,8 @@
     margin: auto;
 }
 
-.AddFurniture, input, textarea {
-    margin: 10px;
+.AddFurniture, input, textarea, select {
+    margin: 5px;
     width: 90%;;
     
 }
@@ -19,7 +19,8 @@
     text-align: left;
 }
 
-.AddFurniture, button {    
+.AddFurniture, button { 
+    margin: 5px;   
     width: 90%;
     border-radius: 5px;
     font-size: medium;
