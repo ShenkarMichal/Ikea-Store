@@ -23,10 +23,11 @@ function GetFurniture(): JSX.Element{
                 .then(f => setFurniture(f))
                 .catch(err => console.log(err))
             console.log(furniture)
-
-        // furnitureService.getAllFurniture()
-        // .then(f => setFurniture(f))
-        // .catch(err => console.log(err))
+    }
+    function clear(){
+        furnitureService.getAllFurniture()
+        .then(furniture => setFurniture(furniture))
+        .catch(err => console.log(err))        
     }
 
 
@@ -35,7 +36,7 @@ function GetFurniture(): JSX.Element{
             <GetFurnitureType />
             <button onClick={search}>Search</button>
             {furniture.map(f => <FurnitureCard key={f.furnitureID} furniture = {f} />)}
-
+            <button onClick={clear}>Clear</button>
         </div>
     )
 }
