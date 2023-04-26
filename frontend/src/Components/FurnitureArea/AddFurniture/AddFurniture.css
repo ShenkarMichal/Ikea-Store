@@ -18,3 +18,12 @@
 .AddFurniture, label {
     text-align: left;
 }
+
+.AddFurniture, button {    
+    width: 90%;
+    border-radius: 5px;
+    font-size: medium;
+    background-color: blue;
+    color: yellow;
+    font-weight: bolder;
+}

@@ -17,9 +17,25 @@ router.get("/furniture", async (request: Request, response: Response, next: Next
 
 //Add furniture
 router.post("/furniture", async (request: Request, response: Response, next: NextFunction)=>{
-    const furniture = new FurnitureModel(request.body)
-    const addedFurniture = await furnitureLogic.addFurniture(furniture)
-    response.status(201).json(addedFurniture)
+    try {
+        const furniture = new FurnitureModel(request.body)
+        const addedFurniture = await furnitureLogic.addFurniture(furniture)
+        response.status(201).json(addedFurniture)        
+    }
+    catch (err: any) {
+        next(err)        
+    }
+})
+
+//Get all furniture-type
+router.get("/furniture-type", async (request: Request, response: Response, next: NextFunction)=>{
+    try {
+        const furnitureType = await furnitureLogic.getAllFurnitureType()
+        response.json(furnitureType)        
+    }
+    catch (err: any) {
+        next(err)        
+    }
 })
 
 export default router

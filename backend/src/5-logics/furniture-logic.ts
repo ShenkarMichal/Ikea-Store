@@ -1,6 +1,7 @@
 import { OkPacket } from "mysql";
 import dal from "../2-utils/dal";
 import FurnitureModel from "../4-models/furniture-model";
+import FurnitureTypeModel from "../4-models/furniture-type-model";
 
 async function getAllFurniture(): Promise<FurnitureModel[]> {
 
@@ -28,7 +29,14 @@ async function addFurniture(furniture:FurnitureModel): Promise<FurnitureModel> {
     return furniture    
 }
 
+async function getAllFurnitureType(): Promise<FurnitureTypeModel[]> {
+    const sql = "SELECT * FROM furnitureType"
+    const furnitureType = await dal.execute(sql)
+    return furnitureType
+}
+
 export default {
     getAllFurniture,
-    addFurniture
+    addFurniture,
+    getAllFurnitureType
 }

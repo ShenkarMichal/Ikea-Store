@@ -35,6 +35,8 @@ function AddFurniture(): JSX.Element{
                 <input type="text" {...register("price")}/> <br />
                 <label>Discount:</label>
                 <input type="text" {...register("discount")}/> <br />
+
+                <button>ADD</button>
             </form>
         </div>
     )
