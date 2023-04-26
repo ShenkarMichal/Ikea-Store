@@ -35,8 +35,16 @@ async function getAllFurnitureType(): Promise<FurnitureTypeModel[]> {
     return furnitureType
 }
 
+async function getFurnitureByType(furnitureTypeID:number): Promise<FurnitureModel[]> {
+    const sql = `SELECT * FROM furniture
+                WHERE furnitureTypeID = ${furnitureTypeID}`
+    const furnitureByType = await dal.execute(sql)
+    return furnitureByType                
+}
+
 export default {
     getAllFurniture,
     addFurniture,
-    getAllFurnitureType
+    getAllFurnitureType,
+    getFurnitureByType
 }

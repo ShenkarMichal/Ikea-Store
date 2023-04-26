@@ -38,4 +38,16 @@ router.get("/furniture-type", async (request: Request, response: Response, next:
     }
 })
 
+//Get furniture by type
+router.get("/furniture-by-furniture-type/:id([0-9]+)", async (request: Request, response: Response, next: NextFunction)=>{
+    try {
+        const furnitureTypeID = +request.params.id
+        const furnitureByType = await furnitureLogic.getFurnitureByType(furnitureTypeID)
+        response.json(furnitureByType)        
+    }
+    catch (err: any) {
+        next(err)        
+    }
+})
+
 export default router
