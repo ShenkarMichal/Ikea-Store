@@ -1,21 +1,16 @@
 import { NavLink } from "react-router-dom"
 import "./Header.css"
 import { authStore } from "../../../Redux/AuthState"
+import AuthMenu from "../../AuthArea/AuthMenu/AuthMenu"
 
 function Header(): JSX.Element{
 
-    const login = authStore.getState().user
     
     return(
         <div className="Header">
             <h1>IKEA</h1>
             <div className="nav">
-                {login ? <span>Hello {login.username}</span> : 
-                <div>
-                    <NavLink to={"/auth/register"}>Register</NavLink>
-                    <span> | </span>
-                    <NavLink to={"/auth/login"}>Login</NavLink>
-                </div>}
+                <AuthMenu />
                 <br /><br />
                 <NavLink to={"/furniture-add"}>Add</NavLink>
                 <span> | </span>
