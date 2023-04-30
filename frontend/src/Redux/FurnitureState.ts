@@ -2,7 +2,7 @@ import { createStore } from "redux";
 import FurnitureModel from "../4-Models/FurnitureModel";
 
 export class FurnitureState {
-    public furniture: FurnitureModel
+    furniture: FurnitureModel[] = []
 }
 
 export enum FurnitureActionType {
@@ -17,14 +17,14 @@ export interface FurnitureAction {
 
 export function furnitureReducer(currentState = new FurnitureState(), action: FurnitureAction): FurnitureState {
 
-    const newState = {...currentState}
+    let newState = {...currentState}
 
     switch (action.type){
         case FurnitureActionType.AddFurniture:
-
+            newState.furniture.push(action.payload)
             break
         case FurnitureActionType.GetFurniture:
-
+            newState = action.payload
             break
     }
 
