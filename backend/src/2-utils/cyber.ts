@@ -1,6 +1,7 @@
 import { Request } from "express";
 import UserModel from "../4-models/user-model";
 import jwt from "jsonwebtoken"
+import crypto from "crypto"
 
 const secretKey = "ikeaStore"
 
@@ -42,7 +43,15 @@ function verifyToken(request : Request):Promise<Boolean> {
     })
 }
 
+function hash(plainText: string): string {
+    if(!plainText) return null
+
+    const hashText = crypto.createHash("sha512").update(plainText).digest("hex")
+    return hashText
+}
+
 export default {
     getNewToken,
-    verifyToken
+    verifyToken,
+    hash
 }

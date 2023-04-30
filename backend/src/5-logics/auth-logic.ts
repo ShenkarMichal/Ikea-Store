@@ -16,6 +16,7 @@ async function register(user:UserModel):Promise<string> {
    
     if(!await isUserExists(user)) throw new AuthErrorModel("The username is already exists")
 
+    user.password = cyber.hash(user.password)
     const sql = `INSERT INTO users
                 VALUES(
                     DEFAULT,
@@ -33,12 +34,13 @@ async function register(user:UserModel):Promise<string> {
 }
 
 async function login(credential:CredentialsModel):Promise<string> {
+    credential.password = cyber.hash(credential.password)
     const sql =`SELECT * FROM users
                     WHERE username = '${credential.username}' AND password = '${credential.password}'`
     const user = new UserModel(await dal.execute(sql))
     if(!user) throw new AuthErrorModel("username or password incorrect!")
     
-    const token = await cyber.getNewToken(user)
+    const token = cyber.getNewToken(user)
     return token
 }
 
