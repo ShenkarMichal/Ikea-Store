@@ -5,11 +5,15 @@ import routeNotFound from './3-middlewares/route-not-found'
 import furnitureController from './6-controllers/furniture-controller'
 import authController from './6-controllers/auth-contoller'
 import cors from 'cors'
+import sanitize from './3-middlewares/sanitize'
 
 const server = express()
 server.use(cors({origin: appConfig.frontEndUrl}))
 
 server.use(express.json())
+
+server.use(sanitize)
+
 server.use("/api", furnitureController)
 server.use("/api/auth", authController)
 server.use("*", routeNotFound)
