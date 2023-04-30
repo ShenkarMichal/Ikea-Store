@@ -7,3 +7,9 @@ export class RouteNotFoundErrorModel extends ErrorsModel {
         super(404, `The route ${route} is not exists`)
     }
 }
+
+export class AuthErrorModel extends ErrorsModel {
+    public constructor(msg: string){
+        super(400, msg)
+    }
+}

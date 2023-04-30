@@ -1,0 +1,74 @@
+Sun, 30 Apr 2023 08:46:48 GMT
+CatchAll error
+Stack: Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+    at Query.Sequence._packetToError (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\2-utils\dal.ts:13:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\2-utils\dal.ts:12:12)
+    at Object.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:25:38)
+    at step (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:33:23)
+    at Object.next (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:14:53)
+    at fulfilled (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+----------------------------------------------------------------------------------------------------
+Sun, 30 Apr 2023 08:54:13 GMT
+CatchAll error
+Stack: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT * FROM users
+                                 WHERE username = 'michal')' at line 1
+    at Query.Sequence._packetToError (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\2-utils\dal.ts:13:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\2-utils\dal.ts:12:12)
+    at Object.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:13:30)
+    at step (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:33:23)
+    at Object.next (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:14:53)
+    at C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:4:12)
+----------------------------------------------------------------------------------------------------
+Sun, 30 Apr 2023 08:56:20 GMT
+CatchAll error
+Stack: Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+    at Query.Sequence._packetToError (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\2-utils\dal.ts:13:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\2-utils\dal.ts:12:12)
+    at Object.<anonymous> (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:26:38)
+    at step (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:33:23)
+    at Object.next (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:14:53)
+    at fulfilled (C:\FullStack\Projects\Fulle-Stack-Systems\FullStack-System-IkeaStore\backend\src\5-logics\auth-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+----------------------------------------------------------------------------------------------------
