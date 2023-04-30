@@ -7,11 +7,13 @@
     display: inline-block;
 }
 
-a {
+.nav {
     position: absolute;
     right: 50px;
     top:50px;
     text-align: right;
+}
+a {
     font-size: large;
     color: white;
 }

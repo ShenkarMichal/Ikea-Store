@@ -6,3 +6,34 @@ body, html, #root {
   color: yellow;
   text-align: center;
 }
+
+form {
+  border-radius: 10px;
+  border: 2px solid yellow;
+  background-color: white;
+  color: blue;
+  width: fit-content;
+  font-size: large;
+  padding: 10px;
+  margin: auto;
+}
+
+input, textarea, select {
+  margin: 5px;
+  width: 90%;;
+  
+}
+
+form > label {
+  text-align: left;
+}
+
+form > button { 
+  margin: 5px;   
+  width: 90%;
+  border-radius: 5px;
+  font-size: medium;
+  background-color: blue;
+  color: yellow;
+  font-weight: bolder;
+}
