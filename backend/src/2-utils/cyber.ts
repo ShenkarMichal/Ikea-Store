@@ -43,10 +43,12 @@ function verifyToken(request : Request):Promise<Boolean> {
     })
 }
 
+const salt = "ikeaStoreSalt"
 function hash(plainText: string): string {
     if(!plainText) return null
 
-    const hashText = crypto.createHash("sha512").update(plainText).digest("hex")
+    const hashText = crypto.createHmac("sha512", salt).update(plainText).digest("hex")
+
     return hashText
 }
 

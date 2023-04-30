@@ -13,18 +13,12 @@ async function getAllFurniture(): Promise<FurnitureModel[]> {
 }
 
 async function addFurniture(furniture:FurnitureModel): Promise<FurnitureModel> {
-    const sql = `INSERT INTO furniture
-                VALUES(
-                    DEFAULT,
-                    ${furniture.furnitureTypeID},
-                    '${furniture.name}',
-                    '${furniture.description}',
-                    '${furniture.size}',
-                    '${furniture.color}',
-                    ${furniture.price},
-                    ${furniture.discount}
-                )`
-    const info: OkPacket = await dal.execute(sql)
+    const sql = "INSERT INTO furniture VALUES(DEFAULT,?,?,?,?,?,?,?)"
+
+    const info: OkPacket = await dal.execute(sql,[furniture.furnitureTypeID,
+                                                    furniture.name, furniture.description,
+                                                    furniture.size,furniture.color,
+                                                    furniture.price,furniture.discount])
     furniture.furnitureID = info.insertId
     return furniture    
 }
@@ -39,8 +33,8 @@ async function getFurnitureByType(furnitureTypeID:number): Promise<FurnitureMode
     const sql = `SELECT F.*, T.furnitureTypeName
                 FROM furniture AS F JOIN furnitureType AS T
                 ON F.furnitureTypeID = T.furnitureTypeID
-                WHERE F.furnitureTypeID = ${furnitureTypeID}`
-    const furnitureByType = await dal.execute(sql)
+                WHERE F.furnitureTypeID = ?`
+    const furnitureByType = await dal.execute(sql,[furnitureTypeID])
     return furnitureByType                
 }
 
