@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express'
 import furnitureLogic from '../5-logics/furniture-logic'
 import FurnitureModel from '../4-models/furniture-model'
+import isLoggedIn from '../3-middlewares/is-logged-in'
 
 const router = express.Router()
 
@@ -16,7 +17,7 @@ router.get("/furniture", async (request: Request, response: Response, next: Next
 })
 
 //Add furniture
-router.post("/furniture", async (request: Request, response: Response, next: NextFunction)=>{
+router.post("/furniture", [isLoggedIn], async (request: Request, response: Response, next: NextFunction)=>{
     try {
         const furniture = new FurnitureModel(request.body)
         const addedFurniture = await furnitureLogic.addFurniture(furniture)

@@ -1,0 +1,20 @@
+import { NextFunction, Request, Response } from "express";
+import cyber from "../2-utils/cyber";
+import { AuthErrorModel } from "../4-models/errors-model";
+
+async function isLoggedIn(request: Request, response: Response, next: NextFunction){
+
+    try {
+        const isValid = await cyber.verifyToken(request)
+        if(!isValid) {
+            console.log(isValid)
+            throw new AuthErrorModel("You are not logged in")
+        }
+        next()        
+    }
+    catch (err: any) {
+        next()
+    }
+}
+
+export default isLoggedIn
