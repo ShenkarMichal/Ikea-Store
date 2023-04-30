@@ -6,7 +6,7 @@ import furnitureController from './6-controllers/furniture-controller'
 import cors from 'cors'
 
 const server = express()
-server.use(cors())
+server.use(cors({origin: appConfig.frontEndUrl}))
 
 server.use(express.json())
 server.use("/api", furnitureController)
