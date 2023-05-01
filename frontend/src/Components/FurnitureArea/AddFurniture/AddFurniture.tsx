@@ -5,9 +5,13 @@ import furnitureService from "../../../3-Services/FurnitureService"
 import { useNavigate } from "react-router-dom"
 import GetFurnitureType from "../GetFurnitureType/GetFurnitureType"
 import { furnitureTypeStore } from "../../../Redux/FurnitureTypeState"
+import useVerifyLoggedIn from "../../../2-Utils/UseVerifyLoggedIn"
 
 function AddFurniture(): JSX.Element{
 
+
+    useVerifyLoggedIn()
+    
     const {register, handleSubmit} = useForm<FurnitureModel>()
     const navigate = useNavigate()
 
