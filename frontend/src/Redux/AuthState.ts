@@ -35,8 +35,8 @@ export function authReducer(currentState = new AuthState(), action: AuthAction )
         case AuthActionType.Register:
         case AuthActionType.Login:
             newState.token = action.payload
-            const container:{user: UserModel} = jwtDecode(newState.token)
-            newState.user = container.user      
+            const container: {user: UserModel} = jwtDecode(newState.token)
+            newState.user = container.user  
             sessionStorage.setItem("token", newState.token)                 
             break        
         case AuthActionType.Logout:

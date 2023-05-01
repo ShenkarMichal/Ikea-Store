@@ -30,10 +30,9 @@ async function register(user:UserModel):Promise<string> {
 async function login(credential:CredentialsModel):Promise<string> {
     credential.password = cyber.hash(credential.password)
     const sql ="SELECT * FROM users WHERE username = ? AND password = ?"
-    const user = new UserModel(await dal.execute(sql, [credential.username,credential.password]))
-    if(!user) throw new AuthErrorModel("username or password incorrect!")
-    
-    const token = cyber.getNewToken(user)
+    const user:UserModel = await dal.execute(sql, [credential.username,credential.password])
+    if(!user[0]) throw new AuthErrorModel("username or password incorrect!")
+    const token = cyber.getNewToken(user[0])
     return token
 }
 

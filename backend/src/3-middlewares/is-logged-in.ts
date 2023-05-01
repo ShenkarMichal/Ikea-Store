@@ -4,17 +4,12 @@ import { AuthErrorModel } from "../4-models/errors-model";
 
 async function isLoggedIn(request: Request, response: Response, next: NextFunction){
 
-    try {
-        const isValid = await cyber.verifyToken(request)
-        if(!isValid) {
-            console.log(isValid)
-            throw new AuthErrorModel("You are not logged in")
-        }
-        next()        
+    const isLogged = await cyber.verifyToken(request)
+    if(!isLogged){
+        const err = new AuthErrorModel("Invalid token!")
+        next(err)
     }
-    catch (err: any) {
-        next()
-    }
+    next()
 }
 
 export default isLoggedIn
