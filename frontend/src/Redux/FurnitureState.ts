@@ -1,5 +1,6 @@
 import { createStore } from "redux";
 import FurnitureModel from "../4-Models/FurnitureModel";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 export class FurnitureState {
     furniture: FurnitureModel[] = []

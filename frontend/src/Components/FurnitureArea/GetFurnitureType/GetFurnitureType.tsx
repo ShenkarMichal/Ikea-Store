@@ -4,6 +4,7 @@ import "./GetFurnitureType.css"
 import furnitureService from "../../../3-Services/FurnitureService"
 import { useForm } from "react-hook-form"
 import { FurnitureTypeActionType, furnitureTypeStore } from "../../../Redux/FurnitureTypeState"
+import { InputLabel, Select, MenuItem, FormControl  } from "@mui/material"
 
 function GetFurnitureType(): JSX.Element {
 
@@ -27,13 +28,24 @@ function GetFurnitureType(): JSX.Element {
 
     return(
         <div className="GetFurnitureType">
-            <select onChange={handleSelectChange}>
-                <option defaultChecked>Select Furniture-Type</option>
-                {furnitureType.map(t => 
-                    <option key={t.furnitureTypeID} value={t.furnitureTypeID}>
-                        {t.furnitureTypeName}
-                    </option>)}
-            </select>
+            <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel id="demo-simple-select-label">Furnitur Type</InputLabel>
+
+                <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="FurnitureType"
+                value={"Select Furniture Type"}
+                onChange={handleSelectChange}>
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                    {furnitureType.map(t => 
+                        <MenuItem  key={t.furnitureTypeID} value={t.furnitureTypeID}>
+                            {t.furnitureTypeName}
+                        </MenuItem >)}
+                </Select>
+            </FormControl>
 
         </div>
     )
