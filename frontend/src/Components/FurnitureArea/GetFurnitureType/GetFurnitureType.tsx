@@ -36,10 +36,9 @@ function GetFurnitureType(): JSX.Element {
                 id="demo-simple-select"
                 label="FurnitureType"
                 value={"Select Furniture Type"}
-                onChange={handleSelectChange}>
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
+                onChange={handleSelectChange}
+                >
+
                     {furnitureType.map(t => 
                         <MenuItem  key={t.furnitureTypeID} value={t.furnitureTypeID}>
                             {t.furnitureTypeName}

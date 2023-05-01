@@ -11,7 +11,8 @@
 }
 
 .GetFurniture button {
-    background-color: white !important;
+    background-color: yellow;
     color: blue;
-    width: auto;
+    width: fit-content;
+    height: fit-content;
 }

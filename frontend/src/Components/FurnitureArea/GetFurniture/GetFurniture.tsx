@@ -4,8 +4,10 @@ import FurnitureModel from "../../../4-Models/FurnitureModel"
 import furnitureService from "../../../3-Services/FurnitureService"
 import FurnitureCard from "../FurnitureCard/FurnitureCard"
 import GetFurnitureType from "../GetFurnitureType/GetFurnitureType"
-import { furnitureTypeStore } from "../../../Redux/FurnitureTypeState"
+import { FurnitureTypeActionType, furnitureTypeStore } from "../../../Redux/FurnitureTypeState"
 import { furnitureStore } from "../../../Redux/FurnitureState"
+import { Button  } from "@mui/material"
+import notify from "../../../3-Services/NotifyService"
 
 function GetFurniture(): JSX.Element{
     const [furniture, setFurniture] = useState<FurnitureModel[]>([])
@@ -20,7 +22,11 @@ function GetFurniture(): JSX.Element{
     },[])
     
     function search(){
-        const typeID = furnitureTypeStore.getState().furnitureType.furnitureTypeID
+        const typeID = furnitureTypeStore.getState().furnitureType?.furnitureTypeID
+        if(!typeID){
+            notify.error("Select a furniture type")
+            return
+        }
             furnitureService.getFurnitureByType(typeID)
                 .then(f => setFurniture(f))
                 .catch(err => console.log(err))
@@ -29,15 +35,16 @@ function GetFurniture(): JSX.Element{
     function clear(){
         furnitureService.getAllFurniture()
             .then(furniture => setFurniture(furniture))
-            .catch(err => console.log(err))        
+            .catch(err => console.log(err))   
+        furnitureTypeStore.dispatch({type:FurnitureTypeActionType.GetFurnitureTypeID, payload:null})     
     }
 
     return(
         <div className="GetFurniture">
             <div className="Search">
                 <GetFurnitureType />
-                <button onClick={search}>Search</button>
-                <button onClick={clear}>Clear</button>
+                <Button  variant="outlined" onClick={search}>Search</Button >
+                <Button  variant="outlined" onClick={clear}>Clear</Button >
             </div>
             {furniture.map(f => <FurnitureCard key={f.furnitureID} furniture = {f} />)}
         </div>

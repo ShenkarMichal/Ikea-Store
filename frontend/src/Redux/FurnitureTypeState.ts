@@ -2,7 +2,7 @@ import { createStore } from "redux";
 import FurnitureTypeModel from "../4-Models/FurnitureTypeModel";
 
 export class FurnitureTypeState {
-    public furnitureType: FurnitureTypeModel
+    public furnitureType: FurnitureTypeModel = null
 }
 
 export enum FurnitureTypeActionType {
