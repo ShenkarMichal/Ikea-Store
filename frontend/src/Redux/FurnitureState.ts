@@ -24,7 +24,7 @@ export function furnitureReducer(currentState = new FurnitureState(), action: Fu
             newState.furniture.push(action.payload)
             break
         case FurnitureActionType.GetFurniture:
-            newState = action.payload
+            newState.furniture = action.payload
             break
     }
 

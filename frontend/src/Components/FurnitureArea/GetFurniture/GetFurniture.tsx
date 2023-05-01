@@ -5,6 +5,7 @@ import furnitureService from "../../../3-Services/FurnitureService"
 import FurnitureCard from "../FurnitureCard/FurnitureCard"
 import GetFurnitureType from "../GetFurnitureType/GetFurnitureType"
 import { furnitureTypeStore } from "../../../Redux/FurnitureTypeState"
+import { furnitureStore } from "../../../Redux/FurnitureState"
 
 function GetFurniture(): JSX.Element{
     const [furniture, setFurniture] = useState<FurnitureModel[]>([])
@@ -12,6 +13,10 @@ function GetFurniture(): JSX.Element{
         furnitureService.getAllFurniture()
             .then(furniture => setFurniture(furniture))
             .catch(err => console.log(err))
+        const unsubscribe = furnitureStore.subscribe(()=>{
+            setFurniture(furnitureStore.getState().furniture)
+        })
+        return ()=>unsubscribe()
     },[])
     
     function search(){
