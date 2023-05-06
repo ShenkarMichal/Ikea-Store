@@ -7,7 +7,6 @@ import { FurnitureActionType, furnitureStore } from "../Redux/FurnitureState";
 class FurnitureService {
     public async getAllFurniture(): Promise<FurnitureModel[]>{
         let furniture = furnitureStore.getState().furniture
-        console.log(furniture)
         if(furniture.length === 0){
             const response = await axios.get<FurnitureModel[]>(appConfig.furnitureURL)
             furniture = response.data

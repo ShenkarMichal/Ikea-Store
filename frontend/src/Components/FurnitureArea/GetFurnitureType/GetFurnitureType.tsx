@@ -16,13 +16,11 @@ function GetFurnitureType(): JSX.Element {
             .catch(err => console.log(err.msg))
     },[])
 
-    const [furnitureTypeID, setFurnitureTypeID] = useState<FurnitureTypeModel>()
 
     function handleSelectChange(event: any) {
         const type = new FurnitureTypeModel()
         type.furnitureTypeID = +event.target.value
         type.furnitureTypeName = event.target.innerText
-        setFurnitureTypeID(type);
         furnitureTypeStore.dispatch({type: FurnitureTypeActionType.GetFurnitureTypeID, payload: type})
     }
 
@@ -35,7 +33,7 @@ function GetFurnitureType(): JSX.Element {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="FurnitureType"
-                value={"Select Furniture Type"}
+                value={'Select Furniture Type'}
                 onChange={handleSelectChange}
                 >
 

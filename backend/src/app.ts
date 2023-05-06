@@ -6,8 +6,14 @@ import furnitureController from './6-controllers/furniture-controller'
 import authController from './6-controllers/auth-contoller'
 import cors from 'cors'
 import sanitize from './3-middlewares/sanitize'
+import expressRateLimit from 'express-rate-limit'
 
 const server = express()
+
+server.use("/api/", expressRateLimit({
+    max: 1,
+    windowMs: 1000
+}))
 server.use(cors({origin: appConfig.frontEndUrl}))
 
 server.use(express.json())

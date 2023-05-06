@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import GetFurnitureType from "../GetFurnitureType/GetFurnitureType"
 import { furnitureTypeStore } from "../../../Redux/FurnitureTypeState"
 import useVerifyLoggedIn from "../../../2-Utils/UseVerifyLoggedIn"
+import notify from "../../../3-Services/NotifyService"
 
 function AddFurniture(): JSX.Element{
 
@@ -20,11 +21,11 @@ function AddFurniture(): JSX.Element{
             const furnitureType = furnitureTypeStore.getState().furnitureType
             furniture.furnitureTypeID = furnitureType.furnitureTypeID
             await furnitureService.addFurniture(furniture)            
-            alert("The furniture has been successfully added")
+            notify.success("The furniture has been successfully added")
             navigate("/furniture")            
         } 
         catch (err:any) {
-            alert(err)
+            notify.error(err)
         }
 
     }
