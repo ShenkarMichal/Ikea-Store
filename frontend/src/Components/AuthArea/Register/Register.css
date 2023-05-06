@@ -2,3 +2,7 @@
     width:500px;
     text-align: left;
 }
+
+.ReCaptchContainer {
+    transform: scale(0.82);
+}
