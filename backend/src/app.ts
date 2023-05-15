@@ -16,7 +16,7 @@ server.use("/api/", expressRateLimit({
     windowMs: 1000
 }))
 
-server.use(helmet())
+// server.use(helmet())
 
 server.use(cors({origin: appConfig.frontEndUrl}))
 
