@@ -1,0 +1,38 @@
+
+# Our entire containers:
+services:
+    # Our backend container:
+    ikea-backend-service:
+
+        # Image name to create:
+        image: ikea-backend-image
+
+        # The Dockerfile location:
+        build: .
+
+        # Conainer name to create:
+        container_name: ikea-backend-container
+
+        # port-binding (host:container)
+        ports:
+            - 5000:4000
+        
+        # Environment variable:
+        environment:
+            PORT: 4000
+        
+        # Container restart policy:
+        restart: unless-stopped
+
+        # Volume for Hot-Reloading:
+        volumes:
+            - .:/app
+
+
+
+
+
+# Run container in the terminal:
+# docker-compose up -d --build
+
+
