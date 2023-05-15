@@ -1,0 +1,82 @@
+
+# Our entire containers:
+services:
+
+    # Our database service:
+    ikea-database-service:
+
+        # Image name to create:
+        image: ikea-database-image
+
+        # The Dockerfile location:
+        build: ./database
+
+        # Container name to create:
+        container_name: ikea-database-container
+
+        # Port binding:
+        ports:
+            - 3306:3306
+        
+        # Environment variables:
+        environment:
+            MARIADB_HOST: localhost
+            MARIADB_DATABASE: ikea-store 
+            MARIADB_ROOT_USER: michal
+            MARIADB_ROOT_PASSWORD: ikea
+        
+        # Container restart policy:
+        restart: unless-stopped
+
+        # Named volumes to save the database:
+        volumes:
+            - ikea-store:/var/lib/mysql
+
+#------------------------------------------------------------
+
+    # Our backend service:
+    ikea-backend-service:
+
+        # Image name to create:
+        image: ikea-backend-image
+
+        # The Dockerfile location:
+        build: ./backend
+
+        # Conainer name to create:
+        container_name: ikea-backend-container
+
+        # port-binding (host:container)
+        ports:
+            - 5000:4000
+        
+        # Environment variable:
+        environment:
+            PORT: 4000
+            MYSQL_HOST: ikea-database-service # link to the database-service.
+            MYSQL_DATABASE: ikea-store
+            MYSQL_USER: michal
+            MYSQL_PASSWORD: ikea
+                
+        # Container restart policy:
+        restart: unless-stopped
+
+        # Volume for Hot-Reloading:
+        volumes:
+            - ./backend:/app
+        
+        # Depens on:
+        depends_on:
+            - ikea-database-service
+
+volumes:
+    ikea-store:
+
+
+
+
+
+# Run container in the terminal:
+# docker-compose up -d --build
+
+
